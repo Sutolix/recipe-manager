@@ -25,6 +25,7 @@ class RecipeManager {
      * Constructor
      */
     public function __construct() {
+        add_action('init', array($this, 'init'));
         add_action('wp_enqueue_scripts', array($this, 'enqueue_scripts'));
         add_filter('template_include', array($this, 'template_include'));
         add_action('add_meta_boxes', array($this, 'add_meta_boxes'));
@@ -33,6 +34,14 @@ class RecipeManager {
         // Register activation/deactivation hooks
         register_activation_hook(__FILE__, array(__CLASS__, 'activate'));
         register_deactivation_hook(__FILE__, array(__CLASS__, 'deactivate'));
+    }
+
+    /*
+    * Plugin initialize
+    */
+    public function init() {
+        self::register_post_type();
+        self::register_taxonomies();
     }
     
     /**
@@ -208,10 +217,7 @@ class RecipeManager {
     /**
      * Plugin activation hook
      */
-    public static function activate() {
-        self::register_post_type();
-        self::register_taxonomies();
-        
+    public static function activate() {        
         flush_rewrite_rules();
     }
     
