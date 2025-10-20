@@ -86,3 +86,9 @@ Para suporte e solicitações de customização, entre em contato com o desenvol
 - Funcionalidade de receitas relacionadas
 - Design responsivo
 - Estilo personalizado
+
+---
+
+## Repositório
+
+O código-fonte está disponível em: [https://github.com/Sutolix/recipe-manager](https://github.com/Sutolix/recipe-manager)
